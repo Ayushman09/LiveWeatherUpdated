@@ -11,7 +11,7 @@ def get_temperature(city_name):
     tempr = data['main']['temp']
     c_id = data['id']
     c_name = data['name']
-    c_desc = data['weather']['description']
+    c_desc = data['weather'][0]['description']
     return tempr,c_id,c_name,c_desc
 
 def kelvin_to_celsius(tmp):
@@ -41,13 +41,13 @@ def weather_xlsx():
                 elif live.range('C' + str(i)).value == 'F':
                     live.range('B' + str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
                     
+            cities.range('C'+str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'       
             cities.range('A'+str(i)).value = data[1]
             cities.range('B'+str(i)).value = data[2]
-            cities.range('D'+str(i)).value = data[4]
+            cities.range('D'+str(i)).value = data[3]
            
             cities.range('C'+str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
-            time.sleep(0.8)
-            cities.range('C'+str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'
+            
 
 
         time.sleep(1) #updates value every 1 seconds
