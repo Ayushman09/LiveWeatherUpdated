@@ -21,7 +21,7 @@ pip install -r requirements.txt"
 4. If shows "citynotfound" for correct city name, try changing "api_key"
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome.<br> For major changes, please open an issue first to discuss what you would like to change.<br>
 Please make sure to give proper credits in Readme.
 
 ## Credits
