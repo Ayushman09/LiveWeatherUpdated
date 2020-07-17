@@ -23,7 +23,7 @@ def kelvin_to_farenheit(tmp):
     return round(f,2)
 
 def weather_xlsx():
-    workbook = xw.Book('/Users/ASUS/Desktop/AyushWeatherAssignment/weather.xlsx')
+    workbook = xw.Book('D:\PROGRAMMING\Python\Internship\LiveWeather-Updated')
     live = workbook.sheets['Sheet1']
 
     cities = workbook.sheets['Sheet2']
@@ -31,26 +31,33 @@ def weather_xlsx():
     while True:
         total_cities = workbook.sheets[0].range('A' + str(workbook.sheets[0].cells.last_cell.row)).end('up').row
         for i in range(2, total_cities + 1):
-            city = live.range('A' + str(i)).value
-            data = get_temperature(city)
+            try:
+                
+                city = live.range('A' + str(i)).value
+                data = get_temperature(city)
 
-            
-            if live.range('D' + str(i)).value == 1:
-                if live.range('C' + str(i)).value == 'C':
-                    live.range('B' + str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'
-                elif live.range('C' + str(i)).value == 'F':
-                    live.range('B' + str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
-                    
-            cities.range('C'+str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'       
-            cities.range('A'+str(i)).value = data[1]
-            cities.range('B'+str(i)).value = data[2]
-            cities.range('D'+str(i)).value = data[3]
-           
-            cities.range('C'+str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
-            
+                
+                if live.range('D' + str(i)).value == 1:
+                    if live.range('C' + str(i)).value == 'C':
+                        live.range('B' + str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'
+                    elif live.range('C' + str(i)).value == 'F':
+                        live.range('B' + str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
+                        
+                cities.range('C'+str(i)).value = str(kelvin_to_celsius(data[0])) + 'C'       
+                cities.range('A'+str(i)).value = data[1]
+                cities.range('B'+str(i)).value = data[2]
+                cities.range('D'+str(i)).value = data[3]
+                time.sleep(0.5)
+                cities.range('C'+str(i)).value = str(kelvin_to_farenheit(data[0])) + 'F'
+                
+            except KeyError:
 
+                live.range('B'+str(i)).value = 'Not found'
 
-        time.sleep(1) #updates value every 1 seconds
+            except TypeError:
+
+                live.range('B'+str(i)).value = 'no city name'
+            time.sleep(1) #updates value every 1 seconds
 
 
 weather_xlsx()
