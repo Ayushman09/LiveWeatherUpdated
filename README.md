@@ -1,4 +1,5 @@
 # LiveWeather-Updated
+[![Python Version](https://img.shields.io/badge/python-3.8.2-brightgreen.svg)](https://python.org)
 [UPDATE] Now Fully Automated with error handling
 A live weather automation script which exports, 'Live Data' from an weather API, in to an Excel Sheet for a regular interval. <br><br>
 ''' Used __openweathermap__ api '''
