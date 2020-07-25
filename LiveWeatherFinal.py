@@ -1,3 +1,8 @@
+#Live Weather ~ Automation Script
+#By: Ayushman Chakravarty
+#Dated: 14/07/2020
+#Purpose - Dealing with api(s)
+
 import requests, json
 import xlwings as xw
 import time
@@ -5,7 +10,8 @@ import sys
 
 
 def get_temperature(city_name):
-    url = "http://api.openweathermap.org/data/2.5/weather?appid=d53280578bb32d47d66ab966197e5574&q="
+    api_key = "d53280578bb32d47d66ab966197e5574"
+    url = "http://api.openweathermap.org/data/2.5/weather?appid=" + api_key + "&q="
     complete_url = url+city_name
     req1 = requests.get(complete_url)
     data = req1.json()
