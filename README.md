@@ -8,6 +8,9 @@ A live weather automation script which exports, 'Live Data' from an weather API,
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install required libraries.
 
+# Demo Video
+
+[![Watch Demo](https://yt-embed.herokuapp.com/embed?v=vUooV6ig5DA)](https://www.youtube.com/watch?v=vUooV6ig5DA)
 
 ## Requirements
 A "requirements.txt" is attached with the code.
